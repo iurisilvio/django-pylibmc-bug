@@ -29,5 +29,7 @@ Traceback (most recent call last):
     return self._cache.get(key, default)
 pylibmc.ConnectionError: error 3 from memcached_get(:1:views.decorators.cache.cache_): (0x7f290400bd60) FAILURE, poll() returned a value that was not dealt with,  host: localhost:11211 -> libmemcached/io.cc:254
 ```
-You can change Django version in requirements.txt to validate the bug was fixed
+Change Django version in requirements.txt to validate the bug was fixed
 on Django 4.1 release.
+
+Change `env` file to use `UWSGI_THREADS=1` to just avoid the bug.
