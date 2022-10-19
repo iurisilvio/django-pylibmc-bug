@@ -9,8 +9,7 @@ with Python bindings.
 # How to reproduce
 
 This is a simple Django project, with only django and pylibmc installed. Just
-start it `./manage.py runserver` with a localhost memcached and run lots of
-concurrent requests: `ab -n100 -c10 http://localhost:8000/`
+run `docker compose up` to start Django, memcached and an `ab` hitting Django.
 
 This will trigger some exceptions like:
 
@@ -30,3 +29,5 @@ Traceback (most recent call last):
     return self._cache.get(key, default)
 pylibmc.ConnectionError: error 3 from memcached_get(:1:views.decorators.cache.cache_): (0x7f290400bd60) FAILURE, poll() returned a value that was not dealt with,  host: localhost:11211 -> libmemcached/io.cc:254
 ```
+You can change Django version in requirements.txt to validate the bug was fixed
+on Django 4.1 release.

@@ -1,0 +1,13 @@
+version: '3'
+services:
+  django:
+    build:
+      context: .
+    image: django
+  memcached:
+    image: memcached
+  ab:
+    image: jordi/ab
+    depends_on:
+      - django
+    command: -n1000 -c20 http://django:8000/

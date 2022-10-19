@@ -1,0 +1,4 @@
+Django<4.1  # Broken version.
+# Django>=4.1  # Working version.
+pylibmc
+uwsgi
