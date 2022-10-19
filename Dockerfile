@@ -13,4 +13,4 @@ COPY . /app
 
 HEALTHCHECK CMD curl --fail http://localhost:8000 || exit 1
 
-ENTRYPOINT uwsgi --http-socket=:8000 --threads=2 --log-5xx --disable-logging --module=bug.wsgi
+ENTRYPOINT uwsgi --http-socket=:8000 --log-5xx --disable-logging --module=bug.wsgi

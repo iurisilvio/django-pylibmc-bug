@@ -1,6 +1,8 @@
 version: '3'
 services:
   django:
+    env_file:
+      - env
     build:
       context: .
     image: django
